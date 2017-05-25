@@ -11,6 +11,7 @@ import * as firebase from 'firebase/app';
 })
 export class AppComponent {
   items: FirebaseListObservable<any>;
+  user: Observable<firebase.User>;
   name: any;
   msgVal: string = '';
 
@@ -24,7 +25,7 @@ export class AppComponent {
     });
 
     // get user authentication state
-    this.name = this.afAuth.authState;
+    this.user = this.afAuth.authState;
 
   }
 
@@ -39,7 +40,7 @@ export class AppComponent {
   }
 
   chatSend(theirMessage: string) {
-      this.items.push({ message: theirMessage, name: this.name.facebook.displayName});
+      this.items.push({ message: theirMessage, name: 'User'});
       this.msgVal = '';
   }
 }
