@@ -40,7 +40,7 @@ export class AppComponent {
   }
 
   chatSend(theirMessage: string) {
-      this.items.push({ message: theirMessage, name: 'User'});
+      this.items.push({ message: theirMessage, name: firebase.auth().currentUser.displayName});
       this.msgVal = '';
   }
 }
